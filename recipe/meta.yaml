@@ -1,22 +1,22 @@
 {% set name = "pipenv" %}
-{% set version = "2018.5.18" %}
+{% set version = "2020.5.28" %}
 
 package:
-  name: "{{ name|lower }}"
-  version: "{{ version }}"
+  name: {{ name|lower }}
+  version: {{ version }}
 
 source:
   url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz
-  sha256: 04b9a8b02a3ff12a5502b335850cfdb192adcfd1d6bbdb7a7c47cae9ab9ddece
+  sha256: 81862314929e3e532502e25bab3c6ba969c0cf67dcaa9d63c2c931ee2d61541c
 
 build:
   noarch: python
-  number: 1
+  number: 0
   entry_points:
     - pipenv=pipenv:cli
     - pewtwo=pipenv.patched.pew.pew:pew
     - pipenv-resolver=pipenv.resolver:main
-  script: "{{ PYTHON }} -m pip install . -vv"
+  script: {{ PYTHON }} -m pip install . -vv
 
 requirements:
   host:
@@ -42,7 +42,7 @@ about:
   license: MIT
   license_family: MIT
   license_file: LICENSE
-  summary: "Python Development Workflow for Humans."
+  summary: Python Development Workflow for Humans.
   doc_url: https://pipenv-fork.readthedocs.io/en/latest/
 
 extra:

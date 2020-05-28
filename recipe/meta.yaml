@@ -20,11 +20,11 @@ build:
 
 requirements:
   host:
-    - pip >=9.0.1
+    - pip >=18.0
     - python
   run:
     - certifi
-    - pip >=9.0.1
+    - pip >=18.0
     - python
     - setuptools >=36.2.1
     - virtualenv

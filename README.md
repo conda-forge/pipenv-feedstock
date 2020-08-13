@@ -5,7 +5,7 @@ Home: https://github.com/pypa/pipenv
 
 Package license: MIT
 
-Feedstock license: BSD 3-Clause
+Feedstock license: BSD-3-Clause
 
 Summary: Python Development Workflow for Humans.
 

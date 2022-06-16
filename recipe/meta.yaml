@@ -30,10 +30,19 @@ requirements:
     - virtualenv-clone >=0.2.5
 
 test:
-  imports:
-    - pipenv
   commands:
-    - pipenv --help
+    # pipenv attempts to detect a CI environment via
+    #   PIPENV_IS_CI = env_to_bool(os.environ.get("CI") or os.environ.get("TF_BUILD") or False)
+    #   https://github.com/pypa/pipenv/blob/114eb8f80a63e519fe9d12ac9e7cb60444cf47c0/pipenv/environments.py#L101
+    #
+    # This expects the envvar "CI" to be truthy, however CI=azure in
+    # pipenv-feedstock.  Use CI=1 as workaround
+    #
+    # Related:
+    # https://github.com/pypa/pipenv/pull/4944
+    # https://github.com/pypa/pipenv/issues/4909
+    - CI=1 python -c "import pipenv"
+    - CI=1 pipenv --help
 
 about:
   home: https://github.com/pypa/pipenv

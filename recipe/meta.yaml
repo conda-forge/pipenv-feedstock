@@ -1,5 +1,5 @@
 {% set name = "pipenv" %}
-{% set version = "2022.1.8" %}
+{% set version = "2022.3.23" %}
 
 package:
   name: {{ name|lower }}
@@ -7,7 +7,7 @@ package:
 
 source:
   url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz
-  sha256: f84d7119239b22ab2ac2b8fbc7d619d83cf41135206d72a17c4f151cda529fd0
+  sha256: a6df41751df55537dee54349e1dcb7781e7ceb34bb985b084e985a7e0dc43fc5
 
 build:
   noarch: python
@@ -30,10 +30,19 @@ requirements:
     - virtualenv-clone >=0.2.5
 
 test:
-  imports:
-    - pipenv
   commands:
-    - pipenv --help
+    # pipenv attempts to detect a CI environment via
+    #   PIPENV_IS_CI = env_to_bool(os.environ.get("CI") or os.environ.get("TF_BUILD") or False)
+    #   https://github.com/pypa/pipenv/blob/114eb8f80a63e519fe9d12ac9e7cb60444cf47c0/pipenv/environments.py#L101
+    #
+    # This expects the envvar "CI" to be truthy, however CI=azure in
+    # pipenv-feedstock.  Use CI=1 as workaround
+    #
+    # Related:
+    # https://github.com/pypa/pipenv/pull/4944
+    # https://github.com/pypa/pipenv/issues/4909
+    - CI=1 python -c "import pipenv"
+    - CI=1 pipenv --help
 
 about:
   home: https://github.com/pypa/pipenv

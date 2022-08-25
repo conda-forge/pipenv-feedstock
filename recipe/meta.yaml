@@ -1,5 +1,5 @@
 {% set name = "pipenv" %}
-{% set version = "2022.8.19" %}
+{% set version = "2022.8.24" %}
 
 package:
   name: {{ name|lower }}
@@ -7,7 +7,7 @@ package:
 
 source:
   url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz
-  sha256: 44013256601acf66f3cbb68c922804a67a8d1b328fe01884851f16e49898852f
+  sha256: edbff81766d4328115b28738df0e5240cb2299a34ff0c60d524ad2855df18c69
 
 build:
   noarch: python

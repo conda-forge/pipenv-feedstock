@@ -24,7 +24,7 @@ requirements:
   run:
     - certifi
     - pip >=18.0
-    - python >=3.6
+    - python >=3.7
     - setuptools >=36.2.1
     - virtualenv
     - virtualenv-clone >=0.2.5

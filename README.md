@@ -1,11 +1,11 @@
-About pipenv
-============
+About pipenv-feedstock
+======================
+
+Feedstock license: [BSD-3-Clause](https://github.com/conda-forge/pipenv-feedstock/blob/main/LICENSE.txt)
 
 Home: https://github.com/pypa/pipenv
 
 Package license: MIT
-
-Feedstock license: [BSD-3-Clause](https://github.com/conda-forge/pipenv-feedstock/blob/main/LICENSE.txt)
 
 Summary: Python Development Workflow for Humans.
 

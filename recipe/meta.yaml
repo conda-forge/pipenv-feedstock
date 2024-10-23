@@ -11,7 +11,7 @@ source:
 
 build:
   noarch: python
-  number: 0
+  number: 1
   entry_points:
     - pipenv=pipenv:cli
     - pipenv-resolver=pipenv.resolver:main
@@ -20,14 +20,15 @@ build:
 requirements:
   host:
     - pip >=18.0
-    - python >=3.6
+    - python >=3.8
+    - setuptools >=67
   run:
-    - certifi
     - pip >=18.0
-    - python >=3.7
-    - setuptools >=36.2.1
-    - virtualenv
-    - virtualenv-clone >=0.2.5
+    - python >=3.8
+    - certifi
+    - packaging >=22
+    - setuptools >=67
+    - virtualenv >=20.24.2
 
 test:
   commands:
